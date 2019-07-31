@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableOrderedProducts extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateTableOrderedProducts extends Migration
      */
     public function up()
     {
-        Schema::create('ordered_products', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('count');
-            $table->float('price');
-            $table->bigInteger('product_id')->unsigned();
-            $table->bigInteger('order_id')->unsigned();
+            $table->bigInteger('user_id')->unsigned();
+            $table->boolean('is_admin')->default(FALSE);
+            $table->boolean('is_moderator')->default(FALSE);
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateTableOrderedProducts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ordered_products');
+        Schema::dropIfExists('roles');
     }
 }

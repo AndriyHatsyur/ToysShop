@@ -18,7 +18,7 @@ class CreateTableOrders extends Migration
             $table->string('full_name');
             $table->string('email');
             $table->string('phone');
-            $table->bigInteger('user_id')->nullable();
+            $table->bigInteger('user_id')->unsigned()->nullable();
             $table->string('region');
             $table->string('town');
             $table->string('post');

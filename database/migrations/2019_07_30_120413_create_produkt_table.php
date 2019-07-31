@@ -24,7 +24,7 @@ class CreateProduktTable extends Migration
             $table->text('description');
             $table->timestamps();
             $table->boolean('is_active')->default(TRUE);
-            $table->bigInteger('category_id');
+            $table->bigInteger('category_id')->unsigned();
         });
     }
 
