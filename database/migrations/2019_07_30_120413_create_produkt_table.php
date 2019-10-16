@@ -18,7 +18,7 @@ class CreateProduktTable extends Migration
             $table->string('name');
             $table->string('slug');
             $table->string('image');
-            $table->integer('count');
+
             $table->float('price');
             $table->float('sale')->nullable();
             $table->text('description');
