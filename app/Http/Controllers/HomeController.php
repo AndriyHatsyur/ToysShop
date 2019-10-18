@@ -30,4 +30,27 @@ class HomeController extends Controller
     {
         return view('pages.product');
     }
+
+    public function cart()
+    {
+        return view('pages.cart');
+    }
+
+    public function order(Request $request)
+    {
+        return view('pages.order');
+
+    }
+
+    public function about()
+    {
+        return view('pages.about');
+
+    }
+
+    public function payment()
+    {
+        return view('pages.payment');
+
+    }
 }

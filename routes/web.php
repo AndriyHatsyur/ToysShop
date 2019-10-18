@@ -17,3 +17,7 @@
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/product', 'HomeController@product')->name('product');
+Route::get('/cart', 'HomeController@cart')->name('cart');
+Route::get('/order', 'HomeController@order')->name('order');
+Route::get('/about', 'HomeController@about')->name('about');
+Route::get('/payment', 'HomeController@payment')->name('payment');

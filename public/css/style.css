@@ -21,7 +21,7 @@ header .info {
     padding-right: 10px;
 }
 
-.navbar {
+.navbar, .row-nav {
     background-color: red;
 }
 
@@ -33,14 +33,28 @@ header .info {
 
 
 .icon-img {
-    width: 4%;
+    width: 80%;
     margin-left: 10px;
     cursor: pointer;
 }
 
+.cart-a {
+    position: relative;
+    width: 5%;
+    padding-left: 10px;
+}
+
 .cart-info {
     color: white;
+    width: 18px;
+    height: 18px;
     font-size: 0.8em;
+    position: absolute;
+    right: 50%;
+    background-color: #1d2124;
+    border-radius: 50%;
+    text-align: center;
+    padding-right: 3px;
 }
 
 .sidebar-title {
@@ -161,7 +175,30 @@ header .info {
     color: #30D5C8;
 }
 
+.delete-product{
+    color: red;
+    position: relative;
+}
 
+
+.cart-control{
+    text-align: center;
+}
+
+.icon-del{
+    width: 70%;
+    position: absolute;
+    bottom: 45%;
+}
+
+.icon-del:hover{
+    transform: scale(1.2);
+}
+
+
+.order-form {
+    padding-left: 50px;
+}
 
 @media screen and (max-width: 780px) {
 
@@ -171,6 +208,16 @@ header .info {
 
     .carousel {
         display: none;
+    }
+
+    .btm-del-prod {
+
+        right: 50%;
+
+    }
+
+    .icon-img{
+        width: 7%;
     }
 
 

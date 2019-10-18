@@ -27,11 +27,11 @@
                 <a class="nav-link" href="{{route('home')}}">Головна </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Про нас</a>
+                <a class="nav-link" href="{{route('about')}}">Про нас</a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Оплата та доставка</a>
+                <a class="nav-link " href="{{route('payment')}}" >Оплата та доставка</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Контакти</a>
@@ -42,7 +42,12 @@
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Знайти</button>
         </form>
 
-        <img class='icon-img' src="{{ asset('img/cart.png') }}" alt="Кошик">
-        <span class='cart-info'>3шт</span>
+        <a class="cart-a" href="{{route('cart')}}">
+            <span class='cart-info'>1</span>
+            <img class='icon-img' src="{{ asset('img/cart.png') }}" alt="Кошик">
+
+        </a>
+
     </div>
+
 </nav>
