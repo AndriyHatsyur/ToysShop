@@ -1,6 +1,6 @@
 .main, body {
     max-width: 100%;
-    font-family: Gargi;
+    font-family: 'Roboto', sans-serif;
     font-size: 1em;
     background-color: white;
 }
@@ -54,7 +54,7 @@ header .info {
     background-color: #1d2124;
     border-radius: 50%;
     text-align: center;
-    padding-right: 3px;
+
 }
 
 .sidebar-title {

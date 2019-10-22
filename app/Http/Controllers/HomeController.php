@@ -53,4 +53,10 @@ class HomeController extends Controller
         return view('pages.payment');
 
     }
+
+    public function contact()
+    {
+        return view('pages.contact');
+
+    }
 }

@@ -23,18 +23,18 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link" href="{{route('home')}}">Головна </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{route('about')}}">Про нас</a>
+                <a class="nav-link " href="{{route('about')}}">Про нас</a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link " href="{{route('payment')}}" >Оплата та доставка</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">Контакти</a>
+                <a class="nav-link " href="{{route('contact')}}" tabindex="-1" aria-disabled="true">Контакти</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">

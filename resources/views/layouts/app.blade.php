@@ -14,10 +14,12 @@
     </title>
 
     <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -53,7 +55,20 @@
         @show
     </footer>
 </div>
+<script>
+    $(function () {
+        $(' .navbar-nav a ').each(function () {
+            var location = window.location.href.split('/')[3];
+            var link = this.href.split('/')[3];
+            location = location.split('?')[0];
+            link = link.split('?')[0];
 
+            if(location == link) {
+                $(this).addClass('active');
+            }
+        });
+    });
+</script>
 
 </body>
 </html>

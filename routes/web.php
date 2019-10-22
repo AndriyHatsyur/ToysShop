@@ -21,3 +21,12 @@ Route::get('/cart', 'HomeController@cart')->name('cart');
 Route::get('/order', 'HomeController@order')->name('order');
 Route::get('/about', 'HomeController@about')->name('about');
 Route::get('/payment', 'HomeController@payment')->name('payment');
+Route::get('/contact', 'HomeController@contact')->name('contact');
+
+
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+    Route::get('/', 'AdminController@index')->name('admin');
+    Route::resource('category', 'CategoryAdminController');
+    Route::resource('product', 'ProductAdminController');
+});
