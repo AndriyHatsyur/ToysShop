@@ -6,34 +6,51 @@
     <form method="post" action="{{ route('product.store') }}">
         <div class="form-group">
             @csrf
+            <label for="exampleInputEmail1">Назва продукту</label>
             <input type="text" name="name" class="form-control" placeholder="Назва продукту">
 
         </div>
         <div class="form-group">
+            <label>Зображення</label>
+
             <input type="text" name="image" class="form-control" placeholder="Зображення">
         </div>
         <div class="form-group">
+            <label>Ціна</label>
+
             <input type="text" name="price" class="form-control" placeholder="Ціна">
         </div>
 
         <div class="form-group">
+            <label>Ціна опт</label>
+
             <input type="text" name="sale" class="form-control" placeholder="Ціна опт"></div>
 
         <div class="form-group">
+            <label>Артикул</label>
+
             <input type="text" name="article" class="form-control" placeholder="Артикул">
         </div>
 
         <div class="form-group">
+            <label>Виробник</label>
+
             <input type="text" name="manufacturer" class="form-control" placeholder="Виробник">
         </div>
 
         <div class="form-group">
+            <label>Розмір</label>
+
             <input type="text" name="size" class="form-control" placeholder="Розмір">
         </div>
         <div class="form-group">
+            <label>Країна виробництва</label>
+
             <input type="text" name="country" class="form-control" placeholder="Країна виробництва">
         </div>
         <div class="form-group">
+            <label>Тип</label>
+
             <input type="text" name="type" class="form-control" placeholder="Тип">
         </div>
         <div class="form-group form-check">

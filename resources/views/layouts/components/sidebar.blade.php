@@ -1,17 +1,11 @@
 <h3 class='sidebar-title'>Категорії товарів</h3>
 <ul class="list-group">
+    @foreach($categorys as $category)
     <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a class="category-item" href="#">Категорія 1</a>
-        <span class="badge badge-m badge-pill">14</span>
+        <a class="category-item" href="#">{{$category->name}}</a>
+        <span class="badge badge-m badge-pill">{{count($category->products)}}</span>
     </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="#">Категорія 1</a>
-        <span class="badge badge-m badge-pill">2</span>
-    </li>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
-        <a href="#">Категорія 1</a>
-        <span class="badge badge-m badge-pill">1</span>
-    </li>
+    @endforeach
 </ul>
 <br>
 <h3 class='sidebar-title light'>Виробники</h3>

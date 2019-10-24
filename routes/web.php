@@ -15,13 +15,13 @@
 
 //Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
-Route::get('/product', 'HomeController@product')->name('product');
-Route::get('/cart', 'HomeController@cart')->name('cart');
-Route::get('/order', 'HomeController@order')->name('order');
-Route::get('/about', 'HomeController@about')->name('about');
-Route::get('/payment', 'HomeController@payment')->name('payment');
-Route::get('/contact', 'HomeController@contact')->name('contact');
+Route::get('/', 'PageController@index')->name('home');
+Route::get('/product', 'PageController@product')->name('product');
+Route::get('/cart', 'PageController@cart')->name('cart');
+Route::get('/order', 'PageController@order')->name('order');
+Route::get('/about', 'PageController@about')->name('about');
+Route::get('/payment', 'PageController@payment')->name('payment');
+Route::get('/contact', 'PageController@contact')->name('contact');
 
 
 

@@ -17,7 +17,8 @@ class ProductAdminController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('pages.admin.product_list', ['products'=> $products]);
     }
 
     /**
@@ -67,7 +68,9 @@ class ProductAdminController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        $categorys = Category::all();
+        return view('pages.admin.product_form_edit', ['product' => $product, 'categorys'=> $categorys]);
     }
 
     /**
@@ -79,7 +82,14 @@ class ProductAdminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        unset($data['_token']);
+        unset($data['_method']);
+        $data['slug'] = TranslitConverter::toTranslit($data['name']);
+        $data['in_stock'] = $data['in_stock'] ? true : false;
+
+        Product::where('id', $id)->update($data);
+        return redirect()->route('product.index');
     }
 
     /**
@@ -90,6 +100,7 @@ class ProductAdminController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Product::destroy($id);
+        return redirect()->route('product.index');
     }
 }
