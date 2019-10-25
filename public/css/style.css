@@ -103,6 +103,13 @@ header .info {
     font-size: 1.1em;
 }
 
+.product-card {
+    margin-bottom: 10px;
+}
+
+.card:hover {
+    border-color: #30D5C8;
+}
 
 .footer p:hover {
     color: white;

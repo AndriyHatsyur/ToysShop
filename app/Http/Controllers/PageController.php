@@ -10,6 +10,7 @@ class PageController extends Controller
 {
     private $categorys;
     private $manufacturer;
+
     /**
      * Create a new controller instance.
      *
@@ -29,41 +30,47 @@ class PageController extends Controller
     public function index()
     {
 
-        return view('pages.home', ['categorys'=> $this->categorys]);
+        $products = Product::where('sale', '>', 0)->take(6)->get();
+
+
+        return view('pages.home', ['categorys' => $this->categorys,
+            'manufacturer' => $this->manufacturer,
+            'products' => $products
+            ]);
 
     }
 
     public function product()
     {
-        return view('pages.product', ['categorys'=> $this->categorys]);
+        return view('pages.product', ['categorys' => $this->categorys, 'manufacturer' => $this->manufacturer]);
     }
 
     public function cart()
     {
-        return view('pages.cart', ['categorys'=> $this->categorys]);
+        return view('pages.cart', ['categorys' => $this->categorys, 'manufacturer' => $this->manufacturer]);
     }
 
     public function order(Request $request)
     {
-        return view('pages.order', ['categorys'=> $this->categorys]);
+        return view('pages.order', ['categorys' => $this->categorys, 'manufacturer' => $this->manufacturer]);
 
     }
 
     public function about()
     {
-        return view('pages.about', ['categorys'=> $this->categorys]);
+        return view('pages.about', ['categorys' => $this->categorys, 'manufacturer' => $this->manufacturer]);
 
     }
 
     public function payment()
     {
-        return view('pages.payment', ['categorys'=> $this->categorys]);
+        return view('pages.payment', ['categorys' => $this->categorys, 'manufacturer' => $this->manufacturer]);
 
     }
 
     public function contact()
     {
-        return view('pages.contact', ['categorys'=> $this->categorys]);
+        return view('pages.contact', ['categorys' => $this->categorys, 'manufacturer' => $this->manufacturer]);
 
     }
 }

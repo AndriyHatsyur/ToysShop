@@ -1,3 +1,11 @@
 .form-delete{
     display: inline;
 }
+
+button {
+    border: 0;
+}
+
+a .btn-sm {
+    text-decoration: none !important;
+}

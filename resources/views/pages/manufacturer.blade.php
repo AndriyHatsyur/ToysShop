@@ -1,12 +1,19 @@
 @extends('layouts.app')
+@section('title')
+@endsection
+@section('carusel')
+@endsection
+
 @section('content')
-    <br>
-    <h4>Товари зі знижкою</h4>
-    <hr>
-    <div class="container">
+    <div class="container>">
+        <h4>Виробник "{{$products[0]->manufacturer}}"</h4>
+        <br>
         <div class="row">
             @foreach($products as $product)
+
                 @include('layouts.components.product_item')
+
+
             @endforeach
         </div>
     </div>
