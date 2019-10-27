@@ -16,4 +16,13 @@ class Product extends Model
     {
         return $this->belongsTo('App\Models\Category');
     }
+
+    public function getPrice()
+    {
+        if ($this->sale){
+            return $this->price /100 * (100 - $this->sale);
+        }
+
+        return $this->price;
+    }
 }

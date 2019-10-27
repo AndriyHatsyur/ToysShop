@@ -43,7 +43,7 @@ class ProductAdminController extends Controller
         $data = $request->all();
         unset($data['_token']);
         $data['slug'] = TranslitConverter::toTranslit($data['name']);
-        $data['in_stock'] = $data['in_stock'] ? true : false;
+        $data['in_stock'] = isset($data['in_stock']) ? true : false;
 
         Product::create($data);
         return redirect()->route('product.index');
@@ -86,7 +86,7 @@ class ProductAdminController extends Controller
         unset($data['_token']);
         unset($data['_method']);
         $data['slug'] = TranslitConverter::toTranslit($data['name']);
-        $data['in_stock'] = $data['in_stock'] ? true : false;
+        $data['in_stock'] = isset($data['in_stock']) ? true : false;
 
         Product::where('id', $id)->update($data);
         return redirect()->route('product.index');

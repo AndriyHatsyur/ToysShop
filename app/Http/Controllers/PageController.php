@@ -19,7 +19,7 @@ class PageController extends Controller
     public function __construct()
     {
         $this->categorys = Category::all();
-        $this->manufacturer = Product::distinct()->get(['manufacturer']);
+        $this->manufacturer = Product::distinct()->where('in_stock', true)->get(['manufacturer']);
     }
 
     /**
@@ -30,7 +30,7 @@ class PageController extends Controller
     public function index()
     {
 
-        $products = Product::where('sale', '>', 0)->take(6)->get();
+        $products = Product::where('sale', '>', 0)->where('in_stock', true)->take(6)->get();
 
 
         return view('pages.home', ['categorys' => $this->categorys,
@@ -45,10 +45,7 @@ class PageController extends Controller
         return view('pages.product', ['categorys' => $this->categorys, 'manufacturer' => $this->manufacturer]);
     }
 
-    public function cart()
-    {
-        return view('pages.cart', ['categorys' => $this->categorys, 'manufacturer' => $this->manufacturer]);
-    }
+
 
     public function order(Request $request)
     {

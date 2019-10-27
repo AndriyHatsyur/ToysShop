@@ -9,7 +9,7 @@
         <h4>Категорія "{{$category->name}}"</h4>
         <br>
         <div class="row">
-            @foreach($category->products as $product)
+            @foreach($products as $product)
 
                 @include('layouts.components.product_item')
 
@@ -17,5 +17,5 @@
             @endforeach
         </div>
     </div>
-
+    {{ $products->links() }}
 @endsection

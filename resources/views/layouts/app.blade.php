@@ -44,7 +44,10 @@
                 @section('carusel')
                     @include('layouts.components.carusel')
                 @show
-                @yield('content')
+                <div  id="content">
+                    @yield('content')
+                </div>
+
             </div>
         </div>
 
@@ -69,6 +72,117 @@
         });
     });
 </script>
+
+<script>
+    $(".btn-buy").click(
+        function() {
+            var product_id = $( this ).data('id');
+            var data = {'id': product_id }
+            $('.btn-buy').blur();
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/cart',
+                type: "POST",
+                data: data,
+                cache: false,
+                success: function (data){
+
+                   $('#cart-count').text(data);
+
+                   $("#" + product_id).attr('disabled', true);
+                    $("#" + product_id).text('В кошику');
+
+
+                },
+                error: function () {
+                    alert('Error ');
+                }
+            });
+        }
+    );
+</script>
+
+<script>
+    $(".cart-control").change(
+        function() {
+            var product_id = $( this ).data('id');
+            var count = $( this ).val();
+
+            var data = {'id': product_id,'count': count ,'_method': 'PUT' }
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/cart/update',
+                type: "POST",
+                data: data,
+                cache: false,
+                success: function (data){
+
+                    $("#sum").text(data.sum);
+                    $("#total").text(data.total);
+                    $('#cart-count').text(data.total);
+                    $("#p-sum" + data.id).text((data.count * data.price));
+
+
+                },
+                error: function () {
+                    alert('Error ');
+                }
+            });
+        }
+    );
+</script>
+
+<script>
+    $(".delete-product").click(
+        function() {
+            var product_id = $( this ).data('id');
+            var data = {'id': product_id , '_method': 'DELETE'}
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/cart/delete',
+                type: "POST",
+                data: data,
+                cache: false,
+                success: function (data){
+
+                    if (data.total > 0){
+
+                        $("#sum").text(data.sum);
+                        $("#total").text(data.total);
+                        $('#cart-count').text(data.total);
+
+                        $('#cart-card'+product_id).remove();
+
+                    } else {
+                        $('#cart-card'+product_id).remove();
+                        $('#cart-count').text(data.total);
+                        $('#content').html("<br>\n" +
+                            "        <h4>Кошик порожній</h4>");
+                    }
+
+                },
+                error: function () {
+                    alert('Error ');
+                }
+            });
+        }
+    );
+</script>
+
 
 </body>
 </html>

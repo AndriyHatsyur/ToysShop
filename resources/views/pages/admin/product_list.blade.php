@@ -22,7 +22,12 @@
             <tr>
                 <th scope="row">{{$loop->iteration}}</th>
                 <td>{{$product->name}}</td>
-                <td>{{$product->price}}</td>
+                @if($product->sale)
+                    <td>{{$product->getPrice()}}</td>
+                @else
+                    <td>{{$product->price }}</td>
+                @endif
+
                 <td>{{$product->category->name}}</td>
                 <td>
                     <a class="btn-sm btn-warning" href="{{ route('product.edit', $product->id) }}">Редагувати</a>

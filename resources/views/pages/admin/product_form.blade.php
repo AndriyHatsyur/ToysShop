@@ -22,9 +22,9 @@
         </div>
 
         <div class="form-group">
-            <label>Ціна опт</label>
+            <label>Знижка %</label>
 
-            <input type="text" name="sale" class="form-control" placeholder="Ціна опт"></div>
+            <input type="text" name="sale" class="form-control" placeholder="Знижка"></div>
 
         <div class="form-group">
             <label>Артикул</label>

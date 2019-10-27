@@ -9,7 +9,7 @@ main {
     padding-top: 10px;
 }
 
-button , input{
+button , input, a{
     border-radius: 0 !important;
 }
 
@@ -91,6 +91,10 @@ header .info {
     color: #30D5C8;
 }
 
+.btn-order {
+    border-radius: 0;
+}
+
 .list-group li a{
     text-decoration: none;
     color: #1d2124;
@@ -101,6 +105,15 @@ header .info {
     font-weight: bold;
     color: #30D5C8;
     font-size: 1.1em;
+}
+
+.page-link {
+    color: #30D5C8;
+}
+
+.page-item.active .page-link {
+    background-color: #30D5C8;
+    border-color: #30D5C8;
 }
 
 .product-card {

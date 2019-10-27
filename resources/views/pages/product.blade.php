@@ -15,9 +15,17 @@
             <div class="col-md-6">
                 <div class="price">
                     <div class="product-info">
+                        @if($product->sale) <small>Знижка {{$product->sale}} %</small>@endif
                         <p class="product-price">
-                            <s class="old-price">{{$product->price}} грн</s>
-                            <span class="new-price"> {{$product->sale}} грн</span>
+
+                            @if($product->sale)
+
+                                <s class="old-price">{{$product->price}} грн</s>
+                                <span class="new-price"> {{$product->getPrice()}} грн</span>
+                            @else
+                                <span class="new-price"> {{$product->getPrice()}} грн</span>
+                            @endif
+
                         </p>
                         <p class="price-opt">
                             Оптова ціна: 190 грн
@@ -29,13 +37,23 @@
                             Тип: {{$product->type}}
                         </p>
                     </div>
-                    <button  class="btn-lg btn-danger btn-buy" >
-                        <img  src="{{ asset('img/cart.png') }}">
-                        Купити</button>
+                    @if(\App\Helpers\Cart::exist($product->id))
+                        <button class="btn-lg btn-danger btn-buy" id="{{$product->id}}" data-id="{{$product->id}}" disabled>
+                            <img src="{{ asset('img/cart.png') }}">
+                            В кошику
+                        </button>
+                        @else
+                        <button class="btn-lg btn-danger btn-buy" id="{{$product->id}}" data-id="{{$product->id}}">
+                            <img src="{{ asset('img/cart.png') }}">
+                            Купити
+                        </button>
+                        @endif
+
 
                 </div>
             </div>
-        </div><br>
+        </div>
+        <br>
         <h4>Додатковий опис</h4>
         <hr>
         <p>

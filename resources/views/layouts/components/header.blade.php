@@ -42,8 +42,8 @@
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Знайти</button>
         </form>
 
-        <a class="cart-a" href="{{route('cart')}}">
-            <span class='cart-info'>1</span>
+        <a class="cart-a" href="{{route('cart.index')}}">
+            <span class='cart-info' id="cart-count">{{\App\Helpers\Cart::total()}}</span>
             <img class='icon-img' src="{{ asset('img/cart.png') }}" alt="Кошик">
 
         </a>
