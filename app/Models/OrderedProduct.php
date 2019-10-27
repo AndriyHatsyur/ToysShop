@@ -7,6 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 class OrderedProduct extends Model
 {
     protected $fillable = [
-        'count', 'price', 'product_id', 'order_id'
+        'name', 'slug', 'image','count', 'price', 'article', 'order_id'
     ];
+
+    public function order()
+    {
+        return $this->belongsTo('App\Models\Order');
+    }
+
 }

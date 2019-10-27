@@ -95,6 +95,10 @@ header .info {
     border-radius: 0;
 }
 
+.sale {
+    color: #2d995b;
+}
+
 .list-group li a{
     text-decoration: none;
     color: #1d2124;

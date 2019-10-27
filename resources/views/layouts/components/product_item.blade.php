@@ -9,7 +9,7 @@
             </a>
             @if($product->sale)
                 <s class="old-price">{{$product->price}} грн</s>
-                <small>Знижка {{$product->sale }}%</small>
+                <small class="sale">Знижка {{$product->sale }}%</small>
                 <p class="card-text">Ціна: {{$product->getPrice()}} грн.</p>
             @else
                 <p class="card-text">Ціна: {{$product->getPrice()}} грн.</p>

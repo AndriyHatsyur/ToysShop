@@ -15,7 +15,7 @@
             <div class="col-md-6">
                 <div class="price">
                     <div class="product-info">
-                        @if($product->sale) <small>Знижка {{$product->sale}} %</small>@endif
+                        @if($product->sale) <small class="sale">Знижка {{$product->sale}} %</small>@endif
                         <p class="product-price">
 
                             @if($product->sale)
@@ -28,7 +28,7 @@
 
                         </p>
                         <p class="price-opt">
-                            Оптова ціна: 190 грн
+                            Оптова ціна: {{$product->price_opt}} грн
                         </p>
                         <p>
                             Виробник: {{$product->manufacturer}} <br>

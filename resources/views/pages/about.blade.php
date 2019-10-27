@@ -19,7 +19,17 @@
             Наш магазин продає товари як роздрібним кліентам, так і оптовим!
         </p>
     </div>
+    <br>
+    <div class="container">
+        <h4>Товари зі знижкою</h4>
+        <hr>
+        <div class="row">
+            @foreach($products as $product)
+                @include('layouts.components.product_item')
+            @endforeach
+        </div>
 
+    </div>
 
 
 

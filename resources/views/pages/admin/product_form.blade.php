@@ -11,6 +11,11 @@
 
         </div>
         <div class="form-group">
+            <label>Код</label>
+
+            <input type="text" name="code" class="form-control" placeholder="Код">
+        </div>
+        <div class="form-group">
             <label>Зображення</label>
 
             <input type="text" name="image" class="form-control" placeholder="Зображення">
@@ -24,7 +29,14 @@
         <div class="form-group">
             <label>Знижка %</label>
 
-            <input type="text" name="sale" class="form-control" placeholder="Знижка"></div>
+            <input type="text" name="sale" class="form-control" placeholder="Знижка">
+        </div>
+        <div class="form-group">
+            <label>Ціна опт</label>
+
+            <input type="text" name="price_opt" class="form-control" placeholder="Ціна опт">
+        </div>
+
 
         <div class="form-group">
             <label>Артикул</label>

@@ -7,7 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     protected $fillable = [
-        'full_name', 'email', 'phone', 'user_id', 'region', 'town', 'post',
-        'status_id', 'comment'
+        'name', 'last_name', 'surname', 'email', 'phone', 'region', 'town', 'post',
+        'status_id', 'paid', 'count', 'sum'
     ];
+
+    public function products()
+    {
+        return $this->hasMany('App\Models\OrderedProduct');
+    }
+
+    public function status()
+    {
+        return $this->belongsTo('App\Models\Status');
+    }
 }

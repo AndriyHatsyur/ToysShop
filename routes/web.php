@@ -18,6 +18,7 @@
 Route::get('/', 'PageController@index')->name('home');
 
 Route::get('/order', 'PageController@order')->name('order');
+Route::post('/order', 'PageController@orderCreate')->name('order-create');
 Route::get('/about', 'PageController@about')->name('about');
 Route::get('/payment', 'PageController@payment')->name('payment');
 Route::get('/contact', 'PageController@contact')->name('contact');

@@ -17,6 +17,7 @@
         </tr>
         </thead>
         <tbody>
+
         @foreach ($products as $product)
 
             <tr>
@@ -28,7 +29,7 @@
                     <td>{{$product->price }}</td>
                 @endif
 
-                <td>{{$product->category->name}}</td>
+                <td>@isset($product->category->name) {{$product->category->name}} @endisset</td>
                 <td>
                     <a class="btn-sm btn-warning" href="{{ route('product.edit', $product->id) }}">Редагувати</a>
                     <form class="form-delete" method="post" action="{{ route('product.destroy', $product->id) }}">

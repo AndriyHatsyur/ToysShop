@@ -15,12 +15,14 @@ class CreateProduktTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->bigInteger('code')->unique();
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('image');
 
             $table->float('price');
             $table->float('sale')->nullable();
+            $table->float('price_opt')->nullable();
             $table->text('description');
             $table->timestamps();
             $table->boolean('in_stock')->default(TRUE);
@@ -30,7 +32,7 @@ class CreateProduktTable extends Migration
             $table->string('size')->nullable();;
             $table->string('country')->nullable();;
             $table->string('type')->nullable();;
-            $table->bigInteger('category_id')->unsigned();
+            $table->bigInteger('category_id')->unsigned()->nullable();
         });
     }
 

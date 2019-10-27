@@ -12,6 +12,11 @@
 
         </div>
         <div class="form-group">
+            <label>Код</label>
+
+            <input type="text" name="code" class="form-control" placeholder="Код" value="{{$product->code}}">
+        </div>
+        <div class="form-group">
             <label>Зображення</label>
             <input type="text" name="image" class="form-control" placeholder="Зображення" value="{{$product->image}}">
         </div>
@@ -23,6 +28,13 @@
         <div class="form-group">
             <label>Знижка %</label>
             <input type="text" name="sale" class="form-control" placeholder="Знижка" value="{{$product->sale}}">
+        </div>
+
+        <div class="form-group">
+            <label>Ціна опт</label>
+
+            <input type="text" name="price_opt" class="form-control" placeholder="Ціна опт"
+                   value="{{$product->price_opt}}">
         </div>
 
         <div class="form-group">
@@ -52,7 +64,7 @@
         <div class="form-group form-check">
             <input type="checkbox" name="in_stock" class="form-check-input"
                    @if($product->in_stock)
-                        checked
+                   checked
                     @endif
             >
             <label class="form-check-label" for="exampleCheck1">Внаяності</label>
@@ -62,9 +74,11 @@
             <select class="form-control" name="category_id">
                 @foreach($categorys as $category)
                     <option value="{{$category->id}}"
+                            @isset($product->category->id )
                             @if($product->category->id == $category->id)
                             selected
                             @endif
+                            @endisset
                     >{{$category->name}}</option>
                 @endforeach
             </select>
