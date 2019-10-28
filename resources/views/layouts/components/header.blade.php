@@ -37,8 +37,8 @@
                 <a class="nav-link " href="{{route('contact')}}" tabindex="-1" aria-disabled="true">Контакти</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-3" type="search" placeholder="Пошук" aria-label="Search">
+        <form class="form-inline my-2 my-lg-0" method="get" action="{{route('search')}}">
+            <input class="form-control mr-sm-3" type="search" name="q" placeholder="Пошук" aria-label="Search">
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Знайти</button>
         </form>
 

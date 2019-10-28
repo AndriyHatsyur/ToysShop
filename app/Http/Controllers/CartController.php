@@ -39,7 +39,9 @@ class CartController extends Controller
     public function update(Request $request)
     {
         $data = $request->all();
-        Cart::update($data['id'], $data['count']);
+
+        if ($data['count']> 0)
+            Cart::update($data['id'], $data['count']);
 
         $data['total'] = Cart::total();
         $data['sum'] = Cart::sum();

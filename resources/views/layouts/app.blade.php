@@ -129,7 +129,7 @@
                     $("#sum").text(data.sum);
                     $("#total").text(data.total);
                     $('#cart-count').text(data.total);
-                    $("#p-sum" + data.id).text((data.count * data.price));
+                    $("#p-sum" + data.id).text((data.count * data.price).toFixed(2));
 
 
                 },

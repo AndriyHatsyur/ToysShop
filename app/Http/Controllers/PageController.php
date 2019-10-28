@@ -106,4 +106,19 @@ class PageController extends Controller
 
         ]);
     }
+
+    public function search(Request $request)
+    {
+        $q = $request->get('q');
+
+        $products = Product::where('name', 'LIKE', "%$q%")->orWhere('type', 'LIKE', "%$q%")->paginate(15);
+
+        return view('pages.search', ['categorys' => $this->categorys,
+            'manufacturer' => $this->manufacturer,
+            'q'=> $q,
+            'products' =>$products
+        ]);
+
+
+    }
 }

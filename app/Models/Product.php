@@ -21,9 +21,9 @@ class Product extends Model
     public function getPrice()
     {
         if ($this->sale){
-            return $this->price /100 * (100 - $this->sale);
+            return round($this->price /100 * (100 - $this->sale),2);
         }
 
-        return $this->price;
+        return round($this->price, 2);
     }
 }

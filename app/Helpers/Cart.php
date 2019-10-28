@@ -71,7 +71,7 @@ class Cart
             }
         }
 
-        return $sum;
+        return round($sum,2);
 
     }
 
