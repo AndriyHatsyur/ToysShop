@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
 use App\Helpers\TranslitConverter;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exsports\ProductExport;
 
 class ProductAdminController extends Controller
 {
@@ -110,5 +112,12 @@ class ProductAdminController extends Controller
         $products = Product::where('name','LIKE', "%$q%")
             ->orderBy('id', 'desc')->paginate(50);
         return view('pages.admin.product_list', ['products'=> $products]);
+    }
+
+    public function export()
+    {
+
+
+        return Excel::download(new ProductExport, 'invoices.xlsx');
     }
 }

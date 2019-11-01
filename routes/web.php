@@ -42,4 +42,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('orders', 'OrderAdminController@index')->name('orders');
     Route::get('orders/{id}', 'OrderAdminController@order')->name('admin-order');
     Route::put('order/update', 'OrderAdminController@update');
+
+    Route::get('export', 'ProductAdminController@export')->name('export');
 });

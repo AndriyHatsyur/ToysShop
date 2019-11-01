@@ -9,7 +9,9 @@
     <form class="form-inline my-2 my-lg-0" method="get" action="{{route('product-search')}}">
         <input class="form-control mr-sm-3" type="search" name="q" placeholder="Пошук" aria-label="Search">
         <button class="btn btn-success my-2 my-sm-0" type="submit">Знайти</button>
+        <a href="{{route('export')}}" class="btn btn-success export">EXPORT</a>
     </form>
+
     <br>
 
     <table class="table table-hover">

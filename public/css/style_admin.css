@@ -17,3 +17,7 @@ a .btn-sm {
 .order-img:hover {
     width: 150px;
 }
+
+.export {
+    margin-left: 40px;
+}
