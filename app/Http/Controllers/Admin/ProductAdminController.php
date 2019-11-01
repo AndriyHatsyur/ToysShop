@@ -17,7 +17,7 @@ class ProductAdminController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::orderBy('id', 'desc')->paginate(50);
         return view('pages.admin.product_list', ['products'=> $products]);
     }
 
@@ -102,5 +102,13 @@ class ProductAdminController extends Controller
     {
         Product::destroy($id);
         return redirect()->route('product.index');
+    }
+
+    public function search(Request $request){
+
+        $q = $request->get('q');
+        $products = Product::where('name','LIKE', "%$q%")
+            ->orderBy('id', 'desc')->paginate(50);
+        return view('pages.admin.product_list', ['products'=> $products]);
     }
 }

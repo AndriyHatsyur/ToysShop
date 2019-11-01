@@ -38,4 +38,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('/', 'AdminController@index')->name('admin');
     Route::resource('category', 'CategoryAdminController');
     Route::resource('product', 'ProductAdminController');
+    Route::get('product-search/', 'ProductAdminController@search')->name('product-search');
+    Route::get('orders', 'OrderAdminController@index')->name('orders');
+    Route::get('orders/{id}', 'OrderAdminController@order')->name('admin-order');
+    Route::put('order/update', 'OrderAdminController@update');
 });

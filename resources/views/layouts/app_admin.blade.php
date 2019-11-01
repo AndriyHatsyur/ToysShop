@@ -39,8 +39,8 @@
                 <div class="navbar-nav">
                     <a class="nav-item nav-link " href="{{route('category.index')}}">Категорії<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="{{route('product.index')}}">Товари</a>
-                    <a class="nav-item nav-link" href="#">Pricing</a>
-                    <a class="nav-item nav-link " href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-item nav-link" href="{{route('orders')}}">Замовлення</a>
+
                 </div>
             </div>
         </nav>
@@ -73,6 +73,39 @@
             }
         });
     });
+</script>
+
+
+<script>
+    $("#st_id").change(
+        function() {
+            var order_id = $( this ).data('id');
+            var status_id = $( this ).val();
+
+            var data = {'order_id': order_id,'status_id': status_id ,'_method': 'PUT' }
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url: '/admin/order/update',
+                type: "POST",
+                data: data,
+                cache: false,
+                success: function (data){
+
+                    console.log(data);
+
+
+                },
+                error: function () {
+                    alert('Error ');
+                }
+            });
+        }
+    );
 </script>
 
 </body>

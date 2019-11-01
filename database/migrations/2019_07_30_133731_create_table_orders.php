@@ -18,7 +18,7 @@ class CreateTableOrders extends Migration
             $table->string('name');
             $table->string('last_name');
             $table->string('surname');
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->string('phone');
 
             $table->string('region');

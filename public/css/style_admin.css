@@ -9,3 +9,11 @@ button {
 a .btn-sm {
     text-decoration: none !important;
 }
+
+.order-img {
+    width: 50px;
+}
+
+.order-img:hover {
+    width: 150px;
+}
