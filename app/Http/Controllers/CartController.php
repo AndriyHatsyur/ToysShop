@@ -16,7 +16,9 @@ class CartController extends Controller
     public function __construct()
     {
         $this->categorys = Category::all();
-        $this->manufacturer = Product::distinct()->where('in_stock', true)->get(['manufacturer']);
+        $this->manufacturer = Product::distinct()->where('in_stock', true)
+            ->where('manufacturer', '!=', '')
+            ->get(['manufacturer']);
     }
 
     public function index(Request $request)

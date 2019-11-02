@@ -224,6 +224,19 @@ header .info {
     padding-left: 50px;
 }
 
+#list-category {
+    display: none;
+}
+
+#list-manufacturer {
+    display: none;
+
+}
+
+#manufacturer-control, #category-control {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 780px) {
 
     .footer , .info{

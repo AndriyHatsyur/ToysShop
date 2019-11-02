@@ -23,11 +23,11 @@ class CreateProduktTable extends Migration
             $table->float('price');
             $table->float('sale')->nullable();
             $table->float('price_opt')->nullable();
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->timestamps();
-            $table->boolean('in_stock')->default(TRUE);
+            $table->boolean('in_stock')->default(FALSE);
 
-            $table->string('article');
+            $table->string('article')->nullable();
             $table->string('manufacturer')->nullable();;
             $table->string('size')->nullable();;
             $table->string('country')->nullable();;

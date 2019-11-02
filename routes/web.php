@@ -33,9 +33,16 @@ Route::resource('/cart', 'CartController')->only([
     'index', 'store', 'update', 'destroy'
 ]);
 
+Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
+
+
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', 'AdminController@index')->name('admin');
+    Route::post('/password', 'AdminController@changePassword')->name('password');
+    Route::get('/password', 'AdminController@changePasswordView')->name('password.view');
     Route::resource('category', 'CategoryAdminController');
     Route::resource('product', 'ProductAdminController');
     Route::get('product-search/', 'ProductAdminController@search')->name('product-search');
@@ -43,5 +50,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function () {
     Route::get('orders/{id}', 'OrderAdminController@order')->name('admin-order');
     Route::put('order/update', 'OrderAdminController@update');
 
-    Route::get('export', 'ProductAdminController@export')->name('export');
+    Route::get('export', 'ExcelAdminController@export')->name('export');
+    Route::get('import', 'ExcelAdminController@importView')->name('import.view');
+    Route::post('import', 'ExcelAdminController@import')->name('import');
 });

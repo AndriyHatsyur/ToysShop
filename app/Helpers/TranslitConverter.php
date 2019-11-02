@@ -4,6 +4,8 @@
 namespace App\Helpers;
 
 
+ use Carbon\Carbon;
+
  class TranslitConverter
  {
      private static $replace = [
@@ -50,4 +52,6 @@ namespace App\Helpers;
          $string = mb_strtolower($string);
          return iconv("UTF-8","UTF-8//IGNORE",strtr($string,self::$replace));
      }
+
+
  }

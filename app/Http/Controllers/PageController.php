@@ -8,7 +8,8 @@ use App\Models\Status;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Product;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 class PageController extends Controller
 {
     private $categorys;
@@ -22,7 +23,9 @@ class PageController extends Controller
     public function __construct()
     {
         $this->categorys = Category::all();
-        $this->manufacturer = Product::distinct()->where('in_stock', true)->get(['manufacturer']);
+        $this->manufacturer = Product::distinct()->where('in_stock', true)
+            ->where('manufacturer', '!=', '')
+            ->get(['manufacturer']);
         $this->products = Product::where('sale', '>', 0)->where('in_stock', true)->take(6)->get();
     }
 
@@ -33,6 +36,13 @@ class PageController extends Controller
      */
     public function index()
     {
+//        User::create([
+//            'name' => 'Nazar',
+//            'surname' => 'Kens',
+//            'phone' => '1234567',
+//            'email' => 'kanban6@gmail.com',
+//            'password' => Hash::make('password'),
+//        ]);
 
         return view('pages.home', ['categorys' => $this->categorys,
             'manufacturer' => $this->manufacturer,
@@ -76,7 +86,7 @@ class PageController extends Controller
 
         $data = $request->all();
         unset($data['_token']);
-        $data['status_id'] = Status::where('code', 100)->first()->id;
+        $data['status_id'] = Status::where('code', 10)->first()->id;
         $data['sum'] = Cart::sum();
         $data['count'] = Cart::total();
 
@@ -111,7 +121,7 @@ class PageController extends Controller
     {
         $q = $request->get('q');
 
-        $products = Product::where('name', 'LIKE', "%$q%")->orWhere('type', 'LIKE', "%$q%")->paginate(15);
+        $products = Product::where('name', 'LIKE', "%$q%")->orWhere('type', 'LIKE', "%$q%")->paginate(30);
 
         return view('pages.search', ['categorys' => $this->categorys,
             'manufacturer' => $this->manufacturer,

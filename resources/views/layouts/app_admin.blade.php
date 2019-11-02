@@ -29,6 +29,7 @@
 <body>
 <div class="main">
     <header>
+        @auth
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="{{route('admin')}}">Адмін панель</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
@@ -40,10 +41,13 @@
                     <a class="nav-item nav-link " href="{{route('category.index')}}">Категорії<span class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="{{route('product.index')}}">Товари</a>
                     <a class="nav-item nav-link" href="{{route('orders')}}">Замовлення</a>
-
+                    <a class="nav-item nav-link" href="{{route('import')}}">Імпорт</a>
+                    <a class="nav-item nav-link" href="{{route('password.view')}}">Пароль</a>
                 </div>
             </div>
+            <a class="nav-item nav-link" href="{{route('logout')}}">Вийти</a>
         </nav>
+            @endauth
     </header>
     <br>
     <main class=container-fluid>

@@ -11,14 +11,16 @@ class ProductController extends Controller
     public function __construct()
     {
         $this->categorys = Category::all();
-        $this->manufacturer = Product::distinct()->where('in_stock', true)->get(['manufacturer']);
+        $this->manufacturer = Product::distinct()->where('in_stock', true)
+            ->where('manufacturer', '!=', '')
+            ->get(['manufacturer']);
     }
 
     public function category($slug)
     {
 
         $category = Category::where('slug', $slug)->first();
-        $products = Product::where('category_id', $category->id)->where('in_stock', true)->paginate(15);
+        $products = Product::where('category_id', $category->id)->where('in_stock', true)->paginate(30);
 
         return view('pages.category', ['categorys' => $this->categorys,
             'manufacturer' => $this->manufacturer,
@@ -41,7 +43,7 @@ class ProductController extends Controller
     public function manufacturer($name)
     {
 
-        $products = Product::where('manufacturer', $name)->where('in_stock', true)->paginate(15);
+        $products = Product::where('manufacturer', $name)->where('in_stock', true)->paginate(30);
 
         return view('pages.manufacturer', ['categorys' => $this->categorys,
             'manufacturer' => $this->manufacturer,

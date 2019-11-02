@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use App\Models\Category;
 use App\Helpers\TranslitConverter;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Exsports\ProductExport;
+
 
 class ProductAdminController extends Controller
 {
@@ -44,7 +43,7 @@ class ProductAdminController extends Controller
     {
         $data = $request->all();
         unset($data['_token']);
-        $data['slug'] = TranslitConverter::toTranslit($data['name']);
+        $data['slug'] = TranslitConverter::toTranslit($data['name']) . $data['code'];
         $data['in_stock'] = isset($data['in_stock']) ? true : false;
 
         Product::create($data);
@@ -87,7 +86,7 @@ class ProductAdminController extends Controller
         $data = $request->all();
         unset($data['_token']);
         unset($data['_method']);
-        $data['slug'] = TranslitConverter::toTranslit($data['name']);
+        $data['slug'] = TranslitConverter::toTranslit($data['name']) . $data['code'];
         $data['in_stock'] = isset($data['in_stock']) ? true : false;
 
         Product::where('id', $id)->update($data);
@@ -114,10 +113,5 @@ class ProductAdminController extends Controller
         return view('pages.admin.product_list', ['products'=> $products]);
     }
 
-    public function export()
-    {
 
-
-        return Excel::download(new ProductExport, 'invoices.xlsx');
-    }
 }

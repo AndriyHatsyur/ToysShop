@@ -34,7 +34,7 @@
                 @if($product->sale)
                     <td>{{$product->getPrice()}}</td>
                 @else
-                    <td>{{$product->price }}</td>
+                    <td>{{$product->price }} грн.</td>
                 @endif
 
                 <td>@isset($product->category->name) {{$product->category->name}} @endisset</td>

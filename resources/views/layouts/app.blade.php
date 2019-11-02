@@ -183,6 +183,36 @@
     );
 </script>
 
+<script>
+    $("#category-control").on("click",function(){
+
+        var t = $("#category-control").text();
+        console.log(t);
+        if ( t == 'Категорії товарів  +' ) {
+            $("#list-category").css("display","block")
+            $("#category-control").text("Категорії товарів  -")
+        }else {
+            $("#list-category").css("display","none")
+            $("#category-control").text("Категорії товарів  +")
+        }
+
+    });
+
+    $("#manufacturer-control").on("click",function(){
+
+        var t = $("#manufacturer-control").text();
+        console.log(t);
+        if ( t == 'Виробники  +' ) {
+            $("#list-manufacturer").css("display","block")
+            $("#manufacturer-control").text("Виробники  -")
+        }else {
+            $("#list-manufacturer").css("display","none")
+            $("#manufacturer-control").text("Виробники  +")
+        }
+
+    });
+</script>
+
 
 </body>
 </html>
