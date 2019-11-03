@@ -121,7 +121,10 @@ class PageController extends Controller
     {
         $q = $request->get('q');
 
-        $products = Product::where('name', 'LIKE', "%$q%")->orWhere('type', 'LIKE', "%$q%")->paginate(30);
+        $products = Product::where('name', 'LIKE', "%$q%")
+            ->where('in_stock', true)
+            ->orWhere('type', 'LIKE', "%$q%")
+            ->paginate(30);
 
         return view('pages.search', ['categorys' => $this->categorys,
             'manufacturer' => $this->manufacturer,

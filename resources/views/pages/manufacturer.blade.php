@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container>">
-        <h4>Виробник "{{$products[0]->manufacturer}}"</h4>
+        <h1>Виробник "{{$products[0]->manufacturer}}"</h1>
         <br>
         <div class="row">
             @foreach($products as $product)

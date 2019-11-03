@@ -38,7 +38,7 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0" method="get" action="{{route('search')}}">
-            <input class="form-control mr-sm-3" type="search" name="q" placeholder="Пошук" aria-label="Search">
+            <input class="form-control mr-sm-3" type="search" name="q" placeholder="Пошук" aria-label="Search" required>
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Знайти</button>
         </form>
 

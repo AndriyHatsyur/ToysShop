@@ -18,21 +18,22 @@
         </thead>
         <tbody>
 
-        @foreach ($orders as $order)
 
-            <tr>
-                <th scope="row">{{$loop->iteration}}</th>
-                <td>{{$order->name . " " . $order->last_name}}</td>
+            @foreach ($orders as $order)
+
+                <tr>
+                    <th scope="row">{{$loop->iteration}}</th>
+                    <td>{{$order->name . " " . $order->last_name}}</td>
 
 
-                <td>{{$order->town}}</td>
-                <td>{{$order->status->name}}</td>
-                <td>
-                    <a class="btn-sm btn-warning" href="{{route('admin-order', $order->id)}}">Детальніше</a>
+                    <td>{{$order->town}}</td>
+                    <td>{{$order->status->name}}</td>
+                    <td>
+                        <a class="btn-sm btn-warning" href="{{route('admin-order', $order->id)}}">Детальніше</a>
 
-                </td>
-            </tr>
-        @endforeach
+                    </td>
+                </tr>
+            @endforeach
 
         </tbody>
     </table>

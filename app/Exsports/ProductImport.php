@@ -21,14 +21,15 @@ class ProductImport implements  WithHeadingRow, ToCollection
         foreach ($rows as $row)
         {
 
-            $slug = TranslitConverter::toTranslit($row['naimenovanie_sayta']);
+            $slug = TranslitConverter::toTranslit($row['naimenovanie_sayta']) . '_' . $row['kod'];
             Product::updateOrCreate(
                 ['code'  => $row['kod']],
                 [
                     'name' => $row['naimenovanie_sayta'],
+                    'slug' => $slug,
                     'image' => $row['fotografii'],
                     'price' => $row['tsena'],
-                    'sale' => isset($row['sale']) ? $row['sale'] : 0,
+                    'sale' => isset($row['skidka']) ? $row['skidka'] : 0,
                     'price_opt' => $row['tsena_opt'],
                     'description' => $row['dopolnitelnoe_opisanie_nomenklatury'],
                     'in_stock' => $row['aktivnyy'] == '+'? true: false,

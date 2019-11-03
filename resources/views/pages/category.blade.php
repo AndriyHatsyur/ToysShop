@@ -6,7 +6,7 @@
 
 @section('content')
     <div class="container>">
-        <h4>Категорія "{{$category->name}}"</h4>
+        <h1>Категорія "{{$category->name}}"</h1>
         <br>
         <div class="row">
             @foreach($products as $product)

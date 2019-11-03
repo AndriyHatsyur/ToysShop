@@ -44,9 +44,9 @@
                 @section('carusel')
                     @include('layouts.components.carusel')
                 @show
-                <div  id="content">
+                <article  id="content">
                     @yield('content')
-                </div>
+                </article>
 
             </div>
         </div>
